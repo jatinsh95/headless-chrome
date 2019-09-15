@@ -6,7 +6,7 @@ import cors from 'cors';
 function startServer() {
     const app = express();
     app.use(cors())
-    app.use(bodyParser.json());
+    app.use(bodyParser.json({ limit: '50mb' }));
     app.use(bodyParser.urlencoded({ extended: true }));
     app.post('/generatePDF', generatePdf)
     app.listen(42100, err => {
